@@ -17,3 +17,6 @@ MYAPP_RELEASE_STORE_FILE=my-app-prod-key.keystore
 MYAPP_RELEASE_KEY_ALIAS=my-app-prod-alias
 # backend api
 API_BASE_URL=https://www.omdbapi.com/
+# OTA codepush key
+CODEPUSH_TOKEN_ANDROID=
+CODEPUSH_TOKEN_IOS=

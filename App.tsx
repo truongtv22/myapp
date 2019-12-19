@@ -11,22 +11,21 @@
 import React from 'react';
 import {
   SafeAreaView,
-  StyleSheet,
   ScrollView,
-  View,
-  Text,
   StatusBar,
+  StyleSheet,
+  Text,
+  View,
 } from 'react-native';
-
 import {
-  Header,
-  LearnMoreLinks,
   Colors,
   DebugInstructions,
+  Header,
+  LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
 import Config from 'react-native-config';
+import codePush from 'react-native-code-push';
 
 const App = () => {
   const usingHermes = typeof HermesInternal === 'object' && HermesInternal !== null;
@@ -51,10 +50,16 @@ const App = () => {
               </Text>
             </View>
             <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Code Push</Text>
+              <Text style={styles.sectionDescription}>
+                Your App is now code-push enabled!
+              </Text>
+            </View>
+            <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-                screen and then come back to see your edits.
+                Edit <Text style={styles.highlight}>App.tsx</Text> to change
+                this screen and then come back to see your edits.
               </Text>
             </View>
             <View style={styles.sectionContainer}>
@@ -122,4 +127,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+// export default App;
+export default codePush({ installMode: codePush.InstallMode.ON_NEXT_RESTART, checkFrequency: codePush.CheckFrequency.ON_APP_START })(App);
