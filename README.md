@@ -1,5 +1,5 @@
 ## Motivation
-Provide a template that has RN/typescript/fastlane/config for the community to start. Byebye to the days of 300+ lines of script to build ios/android with hard-coded in config. Bring some 12 factor love to your mobile apps!
+Extending the react-native-config/fastlane template to cover react-native-version and OTA updates. Byebye to the days of 300+ lines of script to build ios/android with hard-coded in config. Bring some 12 factor love to your mobile apps!
 
 ## Development environment setup
 Install Node(10.15)
@@ -53,3 +53,25 @@ Secrets are to be provided in command line
 #### References:
 + [2018 React Native DevOps Guide](https://medium.com/@tgpski/react-native-devops-guide-2d8e4755ebee)
 + [2017 Fastlane Devops with RN](https://medium.com/react-native-training/fastlane-for-react-native-ios-android-app-devops-8ca85bee614e)
+
+## Versioning ###
+There should be 2 versioning: App(Container) version and Core version. 
+
+For example, an app label 1.3.0(49)-v8. App version is 1.3.0; core version is v8; build number is 49.
+
+#### App Versioning (for ipa/apk version)
+Follow semantic versioning practice. Normally, you will only bump version after a sprint.
+1. Manually update the version in `package.json`.
+2. Bump App version: `yarn postversion:app -B`
+3. Commit and push your code
+
+Notes: 
+
+You can also run `npm version <newversion>`. You will see the latest version updated in `package.json`. 
+
+You can also bumping build number(not app version): `yarn postversion:app -b` 
+
+#### Core Versioning (for js bundle)
+To understand how Over-the-air(OTA) updates work, please refer to the [docs](https://microsoft.github.io/code-push/)
+
+Follow code-push's practice by v1, v2 etc.

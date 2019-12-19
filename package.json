@@ -1,6 +1,6 @@
 {
-  "name": "MyAppRNFastlane",
-  "version": "0.0.1",
+  "name": "react_native_config_codepush",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -8,12 +8,14 @@
     "start": "react-native start",
     "test": "jest",
     "fastlane:ios-ci": "fastlane ios ci",
-    "fastlane:android-ci": "fastlane android ci"
+    "fastlane:android-ci": "fastlane android ci",
+    "postversion:app": "react-native-version --never-amend"
   },
   "dependencies": {
     "react": "16.9.0",
     "react-native": "0.61.4",
-    "react-native-config": "^0.12.0"
+    "react-native-config": "^0.12.0",
+    "react-native-version": "^3.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
