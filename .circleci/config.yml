@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run: npx envinfo
       - run: yarn install
-      - run: cd android && chmod +x gradlew && ./gradlew --no-daemon assembleRelease
+      - run: MYAPP_KEYSTORE_PASSWORD=123khoa@ MYAPP_CONFIG=prod yarn fastlane:android-ci
 
 workflows:
   version: 2
