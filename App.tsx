@@ -28,7 +28,8 @@ import Config from 'react-native-config';
 import codePush from 'react-native-code-push';
 
 const App = () => {
-  const usingHermes = typeof HermesInternal === 'object' && HermesInternal !== null;
+  const usingHermes =
+    typeof HermesInternal === 'object' && HermesInternal !== null;
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -128,4 +129,10 @@ const styles = StyleSheet.create({
 });
 
 // export default App;
-export default codePush({ installMode: codePush.InstallMode.ON_NEXT_RESTART, checkFrequency: codePush.CheckFrequency.ON_APP_START })(App);
+export default codePush({
+  updateDialog: {
+    appendReleaseDescription: true,
+  },
+  installMode: codePush.InstallMode.IMMEDIATE,
+  checkFrequency: codePush.CheckFrequency.ON_APP_START,
+})(App);

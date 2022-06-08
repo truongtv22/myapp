@@ -1,5 +1,5 @@
 {
-  "name": "react_native_config_codepush",
+  "name": "myapp",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,7 +14,7 @@
   "dependencies": {
     "react": "16.9.0",
     "react-native": "0.62.3",
-    "react-native-code-push": "^6.0.0",
+    "react-native-code-push": "^6.4.1",
     "react-native-config": "^0.12.0",
     "react-native-version": "^3.2.0"
   },

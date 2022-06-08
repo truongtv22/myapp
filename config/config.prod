@@ -13,10 +13,10 @@ XCODE_PROVISIONING_PROFILE_UUID=123456
 # android
 ANDROID_APP_ID=com.chark.myapp.fastlane
 # keystore file should be relative to ./android/app
-MYAPP_RELEASE_STORE_FILE=my-app-prod-key.keystore
-MYAPP_RELEASE_KEY_ALIAS=my-app-prod-alias
+MYAPP_RELEASE_STORE_FILE=ship_shop
+MYAPP_RELEASE_KEY_ALIAS=ship_shop_alias
 # backend api
 API_BASE_URL=https://www.omdbapi.com/
 # OTA codepush key
-CODEPUSH_TOKEN_ANDROID=
+CODEPUSH_TOKEN_ANDROID=fNXKeBop1-fPE0KvATeHhHbCod69xDfoPfiBd
 CODEPUSH_TOKEN_IOS=
