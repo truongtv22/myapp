@@ -15,6 +15,7 @@ ANDROID_APP_ID=com.chark.myapp.fastlane
 # keystore file should be relative to ./android/app
 MYAPP_RELEASE_STORE_FILE=ship_shop
 MYAPP_RELEASE_KEY_ALIAS=ship_shop_alias
+MYAPP_KEYSTORE_PASSWORD=123khoa@
 # backend api
 API_BASE_URL=https://www.omdbapi.com/
 # OTA codepush key

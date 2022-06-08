@@ -5,7 +5,8 @@ jobs:
     docker:
       - image: reactnativecommunity/react-native-android
     environment:
-      MYAPP_KEYSTORE_PASSWORD: 123khoa@
+      LC_ALL: en_US.UTF-8
+      LANG: en_US.UTF-8
     steps:
       - checkout
       - run: npx envinfo

@@ -111,27 +111,8 @@ platform :ios do
 end
 
 platform :android do
-  before_all do
-    setup_circle_ci
-  end
-
-  desc "Private lane: Move apk to build directory"
-  private_lane :move_apk do |options|
-    BUILD_APK_LOCATION = options[:output_apk]
-    Dir.chdir ".." do
-      PROJECT_PATH = Dir.pwd
-      COPY_APK_PATH = "#{PROJECT_PATH}/android/app/#{ENV['OUTPUT_NAME']}_Android-#{VERSION_NUMBER}#{OUTPUT_SUFFIX}.apk"
-      sh("cp #{BUILD_APK_LOCATION} #{COPY_APK_PATH}")
-      puts "=======APK OUTPUT IS HERE: #{COPY_APK_PATH}======="
-    end
-  end
-
   desc "CI fastlane command with build env"
   lane :ci do |options|
-    KEYSTORE_PWD = ENV["MYAPP_KEYSTORE_PASSWORD"]
-    if KEYSTORE_PWD == nil
-      UI.user_error!("Please provide MYAPP_KEYSTORE_PASSWORD=xxx when running this command.")
-    end
     gradle(task: 'clean', project_dir: "./android/")
     gradle(
       task: "assemble",
@@ -142,12 +123,8 @@ platform :android do
         "versionCode" => number_of_commits,
       }
     )
-    move_apk(output_apk: "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}")
+    appcenter_upload(
+      file: "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"
+    )
   end
-end
-
-lane :deploy do
-  appcenter_upload(
-    file: "./android/app/MyApp_Android-0.1.0.apk"
-  )
 end
