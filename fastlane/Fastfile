@@ -111,6 +111,10 @@ platform :ios do
 end
 
 platform :android do
+  before_all do
+    setup_circle_ci
+  end
+
   desc "Private lane: Move apk to build directory"
   private_lane :move_apk do |options|
     BUILD_APK_LOCATION = options[:output_apk]
@@ -140,4 +144,10 @@ platform :android do
     )
     move_apk(output_apk: "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}")
   end
+end
+
+lane :deploy do
+  appcenter_upload(
+    file: "./android/app/MyApp_Android-0.1.0.apk"
+  )
 end
