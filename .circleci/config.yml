@@ -4,11 +4,14 @@ jobs:
     working_directory: ~/repo
     docker:
       - image: reactnativecommunity/react-native-android
+    environment:
+      MYAPP_KEYSTORE_PASSWORD: 123khoa@
     steps:
       - checkout
       - run: npx envinfo
       - run: yarn install
-      - run: MYAPP_KEYSTORE_PASSWORD=123khoa@ MYAPP_CONFIG=prod yarn fastlane:android-ci
+      - run: bundle install
+      - run: MYAPP_CONFIG=prod bundle exec fastlane android ci
 
 workflows:
   version: 2
